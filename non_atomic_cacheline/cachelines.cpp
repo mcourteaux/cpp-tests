@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <memory>
 #include <thread>
+#include <atomic>
 
-volatile int stop = 0;
+std::atomic_bool stop;
 
 void writer(volatile int *array, int offset) {
     volatile int *ptr = reinterpret_cast<volatile int *>(
@@ -47,10 +48,11 @@ int main() {
     scanf("%d", &offset);
 
     int *ptr = array;
+    stop = false;
     std::thread tw(writer, ptr, offset);
     std::thread tr(reader, ptr, offset);
     tr.join();
-    stop = 1;
+    stop = true;
     tw.join();
 
     printf("Result: (16 bytes per line)\n");
