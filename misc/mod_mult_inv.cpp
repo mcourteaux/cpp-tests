@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     A2 = B1 = 0;
     C1 = C2 = C3 = 0;
 
-    printf("%3s %3s + %3s %3s = %3s      %3s = %3s %3s + %3s\n", "n", "A1", "x",
+    printf("%6s %6s + %6s %6s = %6s      %6s = %6s %6s + %6s\n", "n", "A1", "x",
            "A2", "A3", "A3", "q", "B3", "r");
     printf("\n");
     do {
@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
         C3 = r;
         assert(A3 - q * B3 == r);
 
-        printf("%3d %3d + %3d %3d = %3d      %3d = %3d %3d + %3d\n", n, A1, x,
+        printf("%6d %6d + %6d %6d = %6d      %6d = %6d %6d + %6d\n", n, A1, x,
                A2, A3, A3, q, B3, r);
 
         /* Shift lines up */
@@ -58,13 +58,13 @@ int main(int argc, char **argv) {
         B2 = C2;
         B3 = C3;
     } while (r > 1);
-    printf("%3d %3d + %3d %3d = %3d      %3d = %3d %3d + %3d\n", n, B1, x, B2,
+    printf("%6d %6d + %6d %6d = %6d      %6d = %6d %6d + %6d\n", n, B1, x, B2,
            B3, B3, q, C3, r);
 
     puts("");
     if (r == 1) {
-        printf("Result: %3d\n", C2);
-        printf("%3d * %3d = %6d = %3d\n", C2, x, C2 * x, (C2 * x) % n);
+        printf("Result: %6d\n", C2);
+        printf("%6d * %6d = %6d = %6d\n", C2, x, C2 * x, (C2 * x) % n);
     } else {
         printf("No solution!\n");
     }
