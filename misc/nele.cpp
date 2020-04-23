@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
     auto tp = std::chrono::system_clock::from_time_t(std::mktime(&tm));
 
     using day = std::chrono::duration<double, std::ratio<24 * 3600, 1>>;
-    using month = std::chrono::duration<double, std::ratio<24 * 3600 * 61, 2>>;
+    using month = std::chrono::duration<double, std::ratio<24 * 3600 * 365, 12>>;
     using year = std::chrono::duration<double, std::ratio<24 * 3600 * 365, 1>>;
 
     do {
